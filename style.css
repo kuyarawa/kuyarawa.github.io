@@ -3,7 +3,7 @@
 }
  
 body {
-  font: 100% sans-serif;
+  font: 100% 'Source Code Pro';
   margin: 0em;
   background-color: #fff;
   color: #666;
@@ -237,7 +237,7 @@ footer hr {
 
 /* Education Block */
 .education {
-  font-family: "Lato", sans-serif;
+  font-family: 'Source Code Pro', sans-serif;
   line-height: 1.5;
   margin-bottom: 0;
   text-align: center;
@@ -312,6 +312,12 @@ footer hr {
 .spotlight a:hover {
   opacity: 1;
   cursor: pointer;
+}
+
+.spotlight .container .row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 @media screen and (min-width: 40em) {
