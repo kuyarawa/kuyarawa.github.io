@@ -246,4 +246,53 @@
 	</div><!-- End Container -->
 	
 </body>
+<script>
+	// Function to record visitor information
+	function recordVisitor() {
+		// Create an object to store visitor data
+		const visitorData = {
+			ipAddress: '',
+			userAgent: '',
+			timestamp: new Date().toString(),
+			// Add more properties as needed
+		};
+
+		// Use a service or API to fetch the visitor's IP address
+		fetch('https://api.ipify.org?format=json')
+			.then((response) => response.json())
+			.then((data) => {
+				visitorData.ipAddress = data.ip;
+
+				// Get the user agent string from the browser
+				visitorData.userAgent = navigator.userAgent;
+
+				// Send the visitor data to your server or store it locally
+				// For demonstration, we'll log it to the console
+				console.log('Visitor Data:', visitorData);
+
+				// You can also send this data to your server via an HTTP request (e.g., using fetch or XMLHttpRequest)
+				// Example:
+				// fetch('/record-visitor', {
+				//   method: 'POST',
+				//   headers: {
+				//     'Content-Type': 'application/json',
+				//   },
+				//   body: JSON.stringify(visitorData),
+				// })
+				// .then((response) => response.json())
+				// .then((data) => {
+				//   console.log('Visitor Data Recorded:', data);
+				// })
+				// .catch((error) => {
+				//   console.error('Error recording visitor data:', error);
+				// });
+			})
+			.catch((error) => {
+				console.error('Error fetching visitor IP address:', error);
+			});
+	}
+
+	// Call the recordVisitor function when the page loads
+	window.addEventListener('load', recordVisitor);
+</script>
 </html>
